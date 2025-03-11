@@ -1,0 +1,1 @@
+pyinstaller --onedir --noconsole --icon=media/app.ico main.py
