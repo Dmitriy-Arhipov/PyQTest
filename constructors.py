@@ -1,5 +1,5 @@
 import sqlite3
-from PyQt6.QtWidgets import QWidget, QComboBox, QDialog, QLineEdit
+from PyQt5.QtWidgets import QWidget, QComboBox, QDialog, QLineEdit
 from players import PyVideoPlayer, PyAudioPlayer, PyImagePlayer
 from UI_design import UI_TestAskWidget, UI_GameAskWidget, UI_ConstructorTest, UI_ConstructorGame
 

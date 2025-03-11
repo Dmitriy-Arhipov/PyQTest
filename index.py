@@ -1,4 +1,4 @@
-from PyQt6.QtWidgets import QMainWindow, QHBoxLayout, QMessageBox
+from PyQt5.QtWidgets import QMainWindow, QHBoxLayout, QMessageBox
 from UI_design import UI_main
 from dialogs import OpenDialog, CreateDialog, DeleteDialog, RunDialog, ExportDialog
 

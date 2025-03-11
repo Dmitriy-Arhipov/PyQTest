@@ -1,4 +1,4 @@
-from PyQt6.QtWidgets import QComboBox, QHBoxLayout, QVBoxLayout, QPushButton, QDialog, QFileDialog, QCheckBox
+from PyQt5.QtWidgets import QComboBox, QHBoxLayout, QVBoxLayout, QPushButton, QDialog, QFileDialog, QCheckBox
 import sqlite3
 from functions import from_file_to_sql, from_sql_to_file
 from constructors import ConstructorTest, ConstructorGame

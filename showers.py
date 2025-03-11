@@ -1,9 +1,9 @@
-from PyQt6.QtWidgets import (QWidget, QVBoxLayout, QPushButton, QDialog, QMessageBox, QLabel, QCheckBox,
+from PyQt5.QtWidgets import (QWidget, QVBoxLayout, QPushButton, QDialog, QMessageBox, QLabel, QCheckBox,
                              QTableWidgetItem, QHeaderView)
 import sqlite3
 from players import PyVideoPlayer, PyAudioPlayer, PyImagePlayer
 from UI_design import UI_GameShowWidget, UI_ShowTest, UI_ShowGame
-from PyQt6.QtGui import QColor
+from PyQt5.QtGui import QColor
 class ShowWidget:
     def see(self):
         '''

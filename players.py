@@ -1,8 +1,8 @@
-from PyQt6.QtWidgets import QMessageBox, QDialog, QPushButton, QLabel, QHBoxLayout, QVBoxLayout, QStyle, QSlider, QFileDialog
-from PyQt6.QtMultimedia import QMediaPlayer, QAudioOutput
-from PyQt6.QtCore import Qt, QUrl
-from PyQt6.QtMultimediaWidgets import QVideoWidget
-from PyQt6.QtGui import QPixmap
+from PyQt5.QtWidgets import QMessageBox, QDialog, QPushButton, QLabel, QHBoxLayout, QVBoxLayout, QStyle, QSlider, QFileDialog
+from PyQt5.QtMultimedia import QMediaPlayer, QMediaContent, QAudio
+from PyQt5.QtCore import Qt, QUrl
+from PyQt5.QtMultimediaWidgets import QVideoWidget
+from PyQt5.QtGui import QPixmap
 import os
 import shutil
 
@@ -11,11 +11,9 @@ class PyVideoPlayer(QDialog):
         super().__init__(root)
         self.setGeometry(200, 200, 700, 400)
         self.setWindowTitle('Видеоплеер')
-        self.player = QMediaPlayer()
-        self.audio = QAudioOutput()
+        self.player = QMediaPlayer(None, QMediaPlayer.VideoSurface)
         self.videowidget = QVideoWidget()
         self.player.setVideoOutput(self.videowidget)
-        self.player.setAudioOutput(self.audio)
         self.cur = False  # текущее состояние ролика
         self.load_UI()
         self.root = root
@@ -53,7 +51,7 @@ class PyVideoPlayer(QDialog):
         else:
             filename = self.default_name
         try:
-            self.player.setSource(QUrl.fromLocalFile(filename))
+            self.player.setMedia(QMediaContent(QUrl.fromLocalFile(filename)))
             self.playBtn.setEnabled(True)
             self.root.fname = filename
         except Exception:
@@ -88,8 +86,7 @@ class PyAudioPlayer(QDialog):
         self.setWindowTitle('Аудиоплеер')
         self.setGeometry(200, 200, 700, 400)
         self.player = QMediaPlayer()
-        self.audio = QAudioOutput()
-        self.player.setAudioOutput(self.audio)
+        self.player.setAudioRole(QAudio.Role('2'))
         self.cur = False
         self.load_UI()
         self.root = root
@@ -124,7 +121,7 @@ class PyAudioPlayer(QDialog):
         else:
             filename = self.default_name
         try:
-            self.player.setSource(QUrl.fromLocalFile(filename))
+            self.player.setMedia(QMediaContent(QUrl.fromLocalFile(filename)))
             self.playBtn.setEnabled(True)
             self.root.fname = filename
         except Exception:
